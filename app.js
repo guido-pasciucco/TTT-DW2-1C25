@@ -1,192 +1,167 @@
+/* 
+CLASE 4 - FUNCIONES 
+
+- ✅ Intro. a Funciones
+- ✅ Hoisting (solo Javascript)
+- ✅ Concepto de Algoritmo
+- ✅ Parámetros
+- ✅ Return
+- ✅ 3 Sintáxis para funciones
+        - Tradicional (palabra reservada function + nombre)
+        - Anónima 
+        - Flecha (Arrow Functions)
+- ✅ Scope / alcance de variables
+- Desafío 4 juntos
+
+NOTA : DAR EJEMPLOS EN PROFUNDIDAD LA CLASE 5 - ARROW Y CALLBACK, RECURS. ETC.
+
+
+*/
+
+// FUNCION
+
 /*
+qué era una variable?
+guardo 1 dato bajo un nombre, en un espacio en memoria
 
+qué es una función
+guardo / concentro 1 o varias líneas de código bajo 1 nombre.
 
-CLASE 3 
-- ✅ Prompt y Alert
-OPERADORES
-- ✅ MATEMÁTICOS / ARITMÉTICOS
-- ✅ DE COMPARACIÓN
-- ✅ COMPUESTOS
-CONTROL DE FLUJOS
-- ✅ CONDICIONALES IF / ELSE IF / ELSE
-- ✅ LÓGICOS - ejemplos boliche y tarj sube
-- OPERADORES TERNARIOS - abreviación del if-else
+- optimizar mi código
+    - evito repeticiones
+    - puedo reutilizar mi bloque de código
+    - mejorar la mantenibilidad del código
+    - mejorar la escalabilidad del código
+*/
+
+// declarar la función
+
+/* function mensajeDeBienvenida1(){
+    console.log("Talento Tech Teens")
+    console.log("Curso - Desarrollo Web 2")
+    console.log("Miércoles de 10 a 12 hs")
+} */
+
+// palabra reservada function
+// nombre de mi función
+// paréntesis () donde van los parámetros (si hay)
+// llaves {} donde va el bloque de código
+
+// llamo a la función
+//mensajeDeBienvenida1()
+
+/* 
+    HOISTING
+    JAVASCRIPT, AL MOMENTO DE EJECUTARSE, "LLEVA PARA ARRIBA" AUTOMÁTICAMENTE TODAS LAS FUNCIONES, HACIENDO POSIBLE QUE YO EJECUTE ANTES DE CREAR UNA FUNCIÓN 
 */
 
 /* 
-METODOS DE JS 
-    - console.log(variable) - visualizar en consola alguna variable.
-    - alert(variable) - visualizar en el viewport a modo de ventana emergente alguna variable.
-    - confirm(variable) - similar al alert, pero con mayor control de la resp del user
-    - prompt("Ingrese su nombre")
-        espacios (vent emerg) donde el usuario puede ingresar información (SIEMPRE VA A SER STRING POR DEFECTO)
+    ALGORITMO
+    un conjunto de instrucciones para lograr x objetivo 
+    dividido en 3 etapas
+    1. SI ENTRADA de datos externos 
+    2. SI PROCESAMIENTO dentro de la lógica del algoritmo
+    3. SALIDA - dato concreto procesado 
+*/
+
+// AGREGAMOS PARÁMETROS A NUESTRA FUNCIÓN
+
+const mensajeDeBienvenida2 = (nombre, generoUser, curso, dia, horario) => {
+    let inicio
+    generoUser === "F"
+    ? inicio = `Bienvenida ${nombre}`
+    : inicio = `Bienvenido ${nombre}`
+    return `
+        ${inicio} al curso de ${curso}!
+        Te esperamos los ${dia} a las ${horario} hs
+    `
+} 
+
+let nombreUser = prompt("Ingrese nombre")
+let generoUser = prompt("Ingrese Genero")
+let cursoUser = prompt("Ingrese curso")
+let diaUser = prompt("Ingrese dia")
+let horarioUser = prompt("Ingrese hora")
+
+console.log(mensajeDeBienvenida2(nombreUser, generoUser, cursoUser, diaUser,horarioUser))
+console.log(mensajeDeBienvenida2("Camila", "F", "Java", "Miercoles", "14") + "!!!" )
+
+// SALIDA DE DATOS - RETURN
+
+/* 
+    DIFERENCIA SUPER IMPORTANTE
+    VISUALIZAR EN PANTALLA NO ES IGUAL A TENER UN RESULTADO FORMAL.
 */
 
 
-// DESAFIO 2 APLICANDO PROMPT Y ALERT
-/* let nombreProducto = prompt("Ingrese el nombre del producto")
-let precioUnitario = prompt("Ingrese el precio del producto")
-let cantDeseada = prompt("Ingrese la cantidad de unidades a comprar")
-let precioFinal = precioUnitario * cantDeseada
-alert(`Vas a comprar ${cantDeseada} ${nombreProducto}s`)
-alert(`El precio final es de $${precioFinal}`) */
+// 1. sintaxis tradicional para funciones
 
-// alt gr
-
-
-/* los operadores son SIMBOLOS que tiene una función asociada
-
-esta función se trabaja con los datos que tienen adelante, atrás o ambas
-
-
-10 + 5  => 15
-operador: + , suma
-lo que tiene atras y adelante : los numeros que va a sumar
-
-*/
-
-// OPERADORES - 3 TIPOS
-
-/* let n1 = 20
-let n2 = 20 */
-
-// 1. MATEMÁTICOS - devuelven datos NUMÉRICOS
- /*    console.log(n1 +  n2) // (+)  SUMA 
-    console.log(n1 -  n2) // (-)  RESTA
-    console.log(n1 *  n2) // (*)  MULTIPLICACIÓN
-    console.log(n1 /  n2) // (/)  DIVISIÓN
-    console.log(n1 %  n2) // (%)  RESTO DE UNA DIVISIÓN
-    console.log(n1 ** n2)  */// (**) POTENCIA
-// 2. Op. de Comparación - DEVUELVEN BOOLEANO 
-    // 2.a. me sirven también para String
-        /* console.log(n1 == n2) // == | Igual que. solo compara el valor, ignora el tipo de dato
-        console.log(n1 === n2) // === | ESTRICTAMENTE igual que. compara el valor y tipo de dato
-        console.log(n1 != n2) // !=   | DISTINTO DE 
-        console.log(n1 !== n2) */ // !== | ESTRICTAMENTE DISTINTO DE 
-    // 2.b. solo funcionan con datos numéricos
-    /* console.log("-------------------------")
-        console.log(n1 > n2)  // >  Mayor que
-        console.log(n1 < n2)  // <  Menor que
-        console.log(n1 >= n2) // >= Mayor o igual que
-        console.log(n1 <= n2)  */// <= Menor o igual que
-// 3. Op. Compuestos - Operación matemática + Asignar resultado
-    /* console.log(n1 +=  n2) // (+=)  SUMA y asignación
-    console.log(n1 -=  n2) // (-=)  RESTA y asignación
-    console.log(n1 *=  n2) // (*=)  MULTIPLICACIÓN y asignación
-    console.log(n1 /=  n2) // (/=)  DIVISIÓN y asignación
-    console.log(n1 %=  n2) // (%=)  RESTO DE UNA DIVISIÓN y asignación
-    console.log(n1 **= n2) */ // (**=) POTENCIA y asignación
-    // ejemplo
-    /* let numero1 = 10
-    console.log(numero1)
-    numero1 = numero1 + 2
-    numero1 += 2
-    console.log(numero1) */
-// 4. Op. Lógicos - se suelen usar para agrupar condiciones
-    // && AND - Conjunción
-        // La condición es TRUE solo cuando todas sus partes son TRUE
-        /* 
-            T + T = T 
-            T + F = F
-            F + T = F
-            F + F = F
-        */
-    // || OR  - Disyunción
-        // La condición es TRUE si por lo menos una de sus partes es TRUE
-        /* 
-            T + T = T 
-            T + F = T
-            F + T = T
-            F + F = F
-        */
-    // !  NOT - Negación
-        /* SI TENEMOS ALGO QUE ES TRUE, LE PONEMOS ! Y SE HACE FALSE 
-            let esEstudiante = true
-            console.log(esEstudiante) - true
-            console.log(!esEstudiante) - false (not es estudiante)
-        */
-
-// EJEMPLO AND - entrada boliche - 2 condiciones - +18 y DNI en mano
-
-// BOLICHE - +18 - 2AM
-// MATINEE - 14-17 - 7PM - 2da opción, se ejecuta cuando la 1ra falló
-
-let edadUser = 26
-let dniEnMano = false
-
-const verifEdad = () =>{
-    if (edadUser >= 18){
-        console.log("Podes pasar al BOLICHE")
-    } else if (edadUser >= 14 && edadUser <= 17 ){
-        console.log("Podes pasar a la MATINEE")
-    } else {
-        console.log("No Podes pasar a nada")
-    }
+function suma2(n1, n2){
+    let res = n1 + n2 + precioFinal
+    return res
 }
-dniEnMano ? verifEdad() : console.log("NO TENES DNI, COMO CHEQUEO TU EDAD?")
 
 
-// EJEMPLO OR - SUBE con descuento
-// estudiantes o jubilados
+// 2. funciones anónimas (no tiene nombre)
 
-let esEstudiante = false
-let esJubilado = false
+    // ejemplo de declaración, alojándola en una constante
 
-/* if (esEstudiante || esJubilado){
-    console.log("Podes acceder al descuento")
-}else{
-    console.log("No aplicas al descuento en la SUBE")
+/* const suma3 = function(){
+    let res = n1 + n2
+    return res
 } */
+    // ejemplo de ejecución, con params y return
 
+/*  console.log(resultadoSuma + function (resultadoSuma){
+    let res = resultadoSuma + 10
+    return res
+}) */
 
-// CONDICIONALES -----------------------------------------------
-
-/* 
-
-mayor de edad para entrar a un boliche
-
-si tu edad es mayor o igual a 18...
-    - podes pasar
-sino... (es decir, si es falso)
-    - no podes pasar
-
-CONDICIÓN A EVALUAR - true 
-- Bloque de código a ejecutar si la condición es TRUE
-
+// 3. Funciones Flechas / Arrow Functions
+/* La función flecha nació originalmente como una abreviación de las anónimas, pero con el paso del tiempo se convirtió en el estándar a la hora de declarar funciones. 
+- no tienen nombre (no confundir con alojarlas en una constante)
+- no usan la palabra reservada function
+- nueva sintáxis => entre () y {}
+- return implícito, en funciones de 1 sola línea, no hace falta escribir return, se genera automáticamente.
 */
 
+const suma = (n1, n2) => n1 + n2
 
-// CONDICIONAL SIMPLE - SINTAXIS TRADICIONAL
-/* if (esEstudiante || esJubilado){
-    console.log("Podes acceder al descuento")
-}else{
-    console.log("No aplicas al descuento en la SUBE")
-} */
+const multi = (n1, n2) => n1 * n2
 
-// CONDICIONAL SIMPLE - OPERADOR TERNARIO
-esEstudiante || esJubilado ?
-    console.log("T - Podes acceder al descuento")
-:
-    console.log("T - No aplicas al descuento en la SUBE")
+const division = (n1, n2) => n1 / n2
 
 
 
 
 
-// OPERADOR TERNARIO - ABREVIACIÓN PARA LOS COND. SIMPLES. - ES6
+function resta(n1, n2){
+    return n1 - n2
+}
 
-/*
-    estructura de un if-else tradicional
-    
-    if(condicion){
-        valor si es true
-    }else{
-        valor si es false
-    }
+// LOS PARÁMETROS DE LA FUNCIÓN RESTA, SON EJECUCIONES DE LA FUNCION SUMA (QUE COMO TIENEN RETURN, SON NÚMEROS.)
 
-    Estructura de un operador ternario
+console.log(resta(suma2(26,7), suma2(10,5)))
 
-    condicion ? valor si es true : valor si es false
+// console.log(10+5) - quiero que muestres en consola 10+5 = 15
+
+
+// SCOPE / ALCANCE DE LAS VARIABLES
+
+/* 2 tipos de alcance de una variable
+
++ GENERAL
+    - LEY NACIONAL - APLICA A TODO ARGENTINA (TODAS SUS PROVINCIAS Y MUNICIPIO)
+    - LEY PROVINCIAL - APLICA SOLO EN LA PROV. DONDE SE CREÓ (Y TODOS SUS MUNICIPIOS)
+    - LEY MUNICIPAL - APLICA SOLO EN EL MUNICIPIO DONDE SE CREÓ
++ ESPECÍFICO
+
+VARIABLES GLOBALES 
+    - SON ACCESIBLES EN CADA RINCÓN DEL CÓDIGO
+    - NO TIENEN UN BLOQUE {} QUE LAS CONTENGA
+
+VARIABLES LOCALES
+    - SOLO EXISTEN DENTRO DEL BLOQUE {} EN EL CUAL FUERON DECLARADAS.
+    - FUERA DE ESTE, NO EXISTEN. 
+    - PERMITE QUE EXISTAN VARIABLES LOCALES DE MISMO NOMBRE EN DISTINTOS BLOQUES
 */
-
-
