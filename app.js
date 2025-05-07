@@ -1,167 +1,153 @@
 /* 
-CLASE 4 - FUNCIONES 
+CLASE 5 - 7/5
 
-- ✅ Intro. a Funciones
-- ✅ Hoisting (solo Javascript)
-- ✅ Concepto de Algoritmo
-- ✅ Parámetros
-- ✅ Return
-- ✅ 3 Sintáxis para funciones
-        - Tradicional (palabra reservada function + nombre)
-        - Anónima 
-        - Flecha (Arrow Functions)
-- ✅ Scope / alcance de variables
-- Desafío 4 juntos
+- ✅ COLECCIONES DE DATOS
+    - ✅ ARRAYS
+    - 🔜 OBJETOS (la clase que viene)
+- BUCLES
+    - ✅ 2 ramificaciones - FOR Y WHILE
+    - ✅ FOR
+    - ✅ Variación FOR tradicional para leer arrays (deprecado)
+    - ✅ FOR IN
+    - ✅ .forEach()
+    - ✅ WHILE
+    - ✅ DO WHILE
 
-NOTA : DAR EJEMPLOS EN PROFUNDIDAD LA CLASE 5 - ARROW Y CALLBACK, RECURS. ETC.
+    - ✅ BREAK 5 MINUTOS
+
+    - REPASO TEMAS Y CLASES ANTERIORES
+        - PIENSEN TEMAS QUE QUIERAN REPASAR, LOS ESCRIBEN EN EL CHAT Y LOS REPASAMOS.
+
+        - funciones 00
+            - return
+        - git 00
+            - crear un repo local y sincronizarlo con uno remoto
+
+
+
+    - RESOLUCIÓN DE DESAFÍOS OBLIGATORIOS (2, 4 y 5)
+    - Hoy, quien pueda, afterClass
+    - VIERNES 9 A 13HS - "GUARDIA" DE DUDAS Y CONSULTAS
 
 
 */
 
-// FUNCION
+// COLECCIÓN DE DATOS
+/* nos permite almacenar en un único espacio en memoria (en una sola variable), varios datos ordenados de algún modo */
 
-/*
-qué era una variable?
-guardo 1 dato bajo un nombre, en un espacio en memoria
-
-qué es una función
-guardo / concentro 1 o varias líneas de código bajo 1 nombre.
-
-- optimizar mi código
-    - evito repeticiones
-    - puedo reutilizar mi bloque de código
-    - mejorar la mantenibilidad del código
-    - mejorar la escalabilidad del código
+/* VARIABLES Y CONSTANTES - LIMITACIÓN > SOLO SE PUEDE ALMACENAR 1 DATO
+ARRAYS / LISTAS / ARREGLOS - 3, 5, 10, 400 DATOS EN UNA ÚNICA VARIABLE
 */
 
-// declarar la función
 
-/* function mensajeDeBienvenida1(){
-    console.log("Talento Tech Teens")
-    console.log("Curso - Desarrollo Web 2")
-    console.log("Miércoles de 10 a 12 hs")
+
+// aplicando arrays
+let nombres = ["Marcos", "Lucia", "Gabriel", "Marcela", "Martina"]
+// posición         0        1       2
+// elemento         1        2       3
+
+// la posición SIEMPRE SE CUENTA DESDE 0
+
+// cómo se organizan los datos dentro de esta colección?
+/* posición - organización es secuencial -  */
+
+// llamo a todos los elementos del array - al array completo
+/* console.log(nombres) */
+
+// llamo a solamente un elemento del array, lo llamo por su POSICIÓN
+/* console.log(nombres[0]) */
+
+
+/* LOS ARRAYS TIENEN TODO UN MENÚ DE MÉTODOS NATIVOS DE JS PARA MANIPULARLOS */
+
+/* 
+AGREGA UN DATO
+    unshift - al principio del array
+    push - al final del array
+
+ELIMINA UN DATO
+    shift - al principio del array
+    pop - al final del array
+*/
+/* nombres.unshift("Carlos")
+nombres.push("Guido")
+nombres.shift()
+nombres.pop() */
+
+
+// BUCLES - CICLOS
+
+/* Estructuras de control de flujo que nos permiten repetir código y ahorrar lineas de codigo en el proceso */
+
+
+// for - se basan en la iteración
+
+// quiero repetirlo 5 veces
+
+/* 
+    for (inicio, fin, actualizacion){
+        bloque de código a repetir
+    } 
+*/
+
+/* for(let i = 1; i <= 5 ; i++){
+    console.log("Hola mundo!")
 } */
 
-// palabra reservada function
-// nombre de mi función
-// paréntesis () donde van los parámetros (si hay)
-// llaves {} donde va el bloque de código
 
-// llamo a la función
-//mensajeDeBienvenida1()
+// FOR IN - Ciclo
+// quiero repetir el console log POR CADA NOMBRE EN EL ARRAY DE NOMBRES
 
-/* 
-    HOISTING
-    JAVASCRIPT, AL MOMENTO DE EJECUTARSE, "LLEVA PARA ARRIBA" AUTOMÁTICAMENTE TODAS LAS FUNCIONES, HACIENDO POSIBLE QUE YO EJECUTE ANTES DE CREAR UNA FUNCIÓN 
-*/
-
-/* 
-    ALGORITMO
-    un conjunto de instrucciones para lograr x objetivo 
-    dividido en 3 etapas
-    1. SI ENTRADA de datos externos 
-    2. SI PROCESAMIENTO dentro de la lógica del algoritmo
-    3. SALIDA - dato concreto procesado 
-*/
-
-// AGREGAMOS PARÁMETROS A NUESTRA FUNCIÓN
-
-const mensajeDeBienvenida2 = (nombre, generoUser, curso, dia, horario) => {
-    let inicio
-    generoUser === "F"
-    ? inicio = `Bienvenida ${nombre}`
-    : inicio = `Bienvenido ${nombre}`
-    return `
-        ${inicio} al curso de ${curso}!
-        Te esperamos los ${dia} a las ${horario} hs
-    `
-} 
-
-let nombreUser = prompt("Ingrese nombre")
-let generoUser = prompt("Ingrese Genero")
-let cursoUser = prompt("Ingrese curso")
-let diaUser = prompt("Ingrese dia")
-let horarioUser = prompt("Ingrese hora")
-
-console.log(mensajeDeBienvenida2(nombreUser, generoUser, cursoUser, diaUser,horarioUser))
-console.log(mensajeDeBienvenida2("Camila", "F", "Java", "Miercoles", "14") + "!!!" )
-
-// SALIDA DE DATOS - RETURN
-
-/* 
-    DIFERENCIA SUPER IMPORTANTE
-    VISUALIZAR EN PANTALLA NO ES IGUAL A TENER UN RESULTADO FORMAL.
-*/
-
-
-// 1. sintaxis tradicional para funciones
-
-function suma2(n1, n2){
-    let res = n1 + n2 + precioFinal
-    return res
-}
-
-
-// 2. funciones anónimas (no tiene nombre)
-
-    // ejemplo de declaración, alojándola en una constante
-
-/* const suma3 = function(){
-    let res = n1 + n2
-    return res
+// forma vieja de lograrlo - no la recomiendo
+/* for(let i = 0; i < nombres.length ; i++){
+    console.log(`Hola ${nombres[i]}`)
 } */
-    // ejemplo de ejecución, con params y return
 
-/*  console.log(resultadoSuma + function (resultadoSuma){
-    let res = resultadoSuma + 10
-    return res
-}) */
+// forma actual de lograrlo - for...in
 
-// 3. Funciones Flechas / Arrow Functions
-/* La función flecha nació originalmente como una abreviación de las anónimas, pero con el paso del tiempo se convirtió en el estándar a la hora de declarar funciones. 
-- no tienen nombre (no confundir con alojarlas en una constante)
-- no usan la palabra reservada function
-- nueva sintáxis => entre () y {}
-- return implícito, en funciones de 1 sola línea, no hace falta escribir return, se genera automáticamente.
+// por cada nombre en el array de nombres...
+// generá el console log saludando
+
+/* for (let i in nombres) {
+    console.log(`Hola ${nombres[i]}`)
+} */
+
+// forEach - método para arrays de JS que funciona como un ciclo
+
+/* console.log(nombres.forEach(
+    (i)=> console.log(`Hola ${i}`)
+)) */
+
+// WHILE -------------------------------------
+
+/* 
+    LOS CICLOS WHILE SE BASAN EN EL CUMPLIMIENTO O NO DE UNA CONDICIÓN.
+
+    EN LOS BUCLES WHILE NOSOTROS ESTABLECEMOS UNA CONDICIÓN
+        - MIENTRAS ESA CONDICIÓN SE CUMPLA, EL BLOQUE DE CÓDIGO DE NUESTRO WHILE SE VA A EJECUTAR
+        - CUANDO DEJE DE SER TRUE LA CONDICIÓN, YA NO SE EJECUTA MÁS EL BLOQUE DE CÓDIGO DEL WHILE
+        - SUPER IMPORTANTE: EVITAR BUCLES INFINITOS. (CUANDO LA CONDICIÓN SIEMPRE ES TRUE.) CUANDO YO TRABAJO UN BUCLE WHILE, TENGO QUE ASEGURARME DE QUE EN ALGÚN MOMENTO LA CONDICIÓN VA A SER FALSE.
 */
 
-const suma = (n1, n2) => n1 + n2
+let numero = 26
 
-const multi = (n1, n2) => n1 * n2
+// WHILE    - SE EJECUTA CERO O MÁS VECES - PUEDE NUNCA EJECUTARSE.
+// WHILE - SIEMPRE SE COMPRUEBA LA CONDICIÓN PRIMERO
 
-const division = (n1, n2) => n1 / n2
-
-
-
-
-
-function resta(n1, n2){
-    return n1 - n2
+console.log("Hola while")
+while (numero <= 5){
+    console.log("El número es: " + numero)
+    numero++
 }
-
-// LOS PARÁMETROS DE LA FUNCIÓN RESTA, SON EJECUCIONES DE LA FUNCION SUMA (QUE COMO TIENEN RETURN, SON NÚMEROS.)
-
-console.log(resta(suma2(26,7), suma2(10,5)))
-
-// console.log(10+5) - quiero que muestres en consola 10+5 = 15
+console.log("Chau")
 
 
-// SCOPE / ALCANCE DE LAS VARIABLES
+// DO WHILE - SE EJECUTA UNA O MÁS VECES - SI O SI SE EJECUTA LA 1RA VEZ.
+// DO WHILE - LA 1ER VUELTA OCURRE ANTES DE LA 1RA COMPROBACIÓN
 
-/* 2 tipos de alcance de una variable
-
-+ GENERAL
-    - LEY NACIONAL - APLICA A TODO ARGENTINA (TODAS SUS PROVINCIAS Y MUNICIPIO)
-    - LEY PROVINCIAL - APLICA SOLO EN LA PROV. DONDE SE CREÓ (Y TODOS SUS MUNICIPIOS)
-    - LEY MUNICIPAL - APLICA SOLO EN EL MUNICIPIO DONDE SE CREÓ
-+ ESPECÍFICO
-
-VARIABLES GLOBALES 
-    - SON ACCESIBLES EN CADA RINCÓN DEL CÓDIGO
-    - NO TIENEN UN BLOQUE {} QUE LAS CONTENGA
-
-VARIABLES LOCALES
-    - SOLO EXISTEN DENTRO DEL BLOQUE {} EN EL CUAL FUERON DECLARADAS.
-    - FUERA DE ESTE, NO EXISTEN. 
-    - PERMITE QUE EXISTAN VARIABLES LOCALES DE MISMO NOMBRE EN DISTINTOS BLOQUES
-*/
+console.log("Hola do while")
+do{
+    console.log("El número es: " + numero)
+    numero++
+}while (numero <= 5)
+console.log("Chau")

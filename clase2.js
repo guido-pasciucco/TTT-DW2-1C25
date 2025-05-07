@@ -137,14 +137,3 @@ console.log(numero1 === numero2)
 
 
 // ----------------------------
-// DESAFIO 2 SIN PROMPT NI ALERT (no llegamos a verlos en esa clase)
-// alternativas
-// en vez de prompt - HARDCODEAN el dato - SOLUCIONADO
-// en vez de alert - usan console.log()
-let nombreProducto = "Bicicleta"
-let precioUnitario = 250000
-let cantDeseada = 3
-
-let precioFinal = precioUnitario * cantDeseada
-
-console.log(`El precio final es de $${precioFinal}`)
