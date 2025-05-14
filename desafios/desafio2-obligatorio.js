@@ -11,8 +11,6 @@ CONSIGNA
 - UTILIZA ALERT PARA INFORMAR AL USUARIO SOBRE EL COSTO TOTAL DE SU COMPRA.
 */
 
-// DESAFIO 2 APLICANDO PROMPT Y ALERT
-
 let nombreProducto = prompt("Ingrese el nombre del producto")
 let precioUnitario = prompt("Ingrese el precio del producto")
 let cantDeseada = prompt("Ingrese la cantidad de unidades a comprar")

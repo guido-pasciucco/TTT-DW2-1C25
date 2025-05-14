@@ -4,13 +4,12 @@ APLICAMOS BUCLES Y ARRAYS
 
 ✅ 1. CREAR UN ARRAY DE PRODUCTOS
 ✅ 2. MOSTRAR SU CONTENIDO CON UN BUCLE FOR IN, CON CONSOLE.LOG
-✅ 3. AGREGAR UN PRODUCTO AL STOCK A TRAVÉS DEL MÉTODO
+✅ 3. AGREGAR UN PRODUCTO AL STOCK - Métodos:
     .push("nuevoProd")
     .unshift("nuevoProd")
-✅ 4. QUITAR UN PRODUCTO DEL STOCK A TRAVÉS DEL MÉTODO
+✅ 4. QUITAR UN PRODUCTO DEL STOCK - Métodos:
     .pop()
     shift()
-
 */
 
 let productos = ["Heladera", "Lavarropas", "Microondas", "Tostadora"]

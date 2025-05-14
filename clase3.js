@@ -1,6 +1,4 @@
 /*
-
-
 CLASE 3 
 - ✅ Prompt y Alert
 OPERADORES
