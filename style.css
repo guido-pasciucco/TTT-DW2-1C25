@@ -28,3 +28,18 @@ SELECTOR - puede ser
         .miClase, p, #miId, h3 - a cada uno de estos, aplicale la misma regla.
 
 */
+
+
+.estiloCard{
+    background-color: bisque;
+    margin: 10px;
+    padding: 30px;
+    text-align: center;
+}
+
+
+#displayProductos{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
