@@ -1,45 +1,28 @@
-/* CLASE 8 - DOM PARTE 2 - 28/5 
+/* CLASE 9 - EVENTOS Y PROMESAS - 4/6 */
 
+/* EVENTOS - DECENAS DE SUCESOS QUE OCURREN EN NUESTRO SITIO, EN NUESTRO NAVEGADOR, EN NUESTRA COMPUTADORA 
 
-DOM - DOCUMENT OBJECT MODEL - MODELO DE OBJETOS DEL DOCUMENTO
-
-- createElement("div") - crear una nueva etiqueta, que debemos ubicarla en el DOM
-- APPEND CHILD - ubicar una etiqueta dentro del html
-- REMOVE
+DE LA TOTALIDAD DE LOS EVENTOS QUE VAN SUCEDIENDO EN MI SITIO
+YO ELIJO ALGUNOS PARA ASIGNARLES ACCIONES ESPECÍFICAS (JS)
 
 */
 
+// declaramos una promesa
 
-/* createElement("p") 
+let miPromesa = new Promise ((resolve, reject) => {
+    // simular una acción que tome tiempo
+    // ej. solicitud a un servidor
+    // vamos a simularlo con setTimeOut
+    setTimeout(()=>{
+        let trajoElMate = false // cambiar a false para simular un fallo
+        trajoElMate 
+        ? resolve("Bien ahi amigo que te acordaste del mate")
+        : reject("cheee y el mate?!")
+    }, 5000) // simulamos atraso de 5 seg
+});
 
-- Crea una nueva etiqueta (o nodo) PERO!!! no está conectada desde el primer momento al arbol de nodos del DOM
-- .isConnected - método que nos informa si x elemento está o no conectado al DOM (bool)
-- Necesitamos conectarla a través del método appendChild() "anexar"
+// utilizamos la promesa
 
-*/
-
-const contenedor = document.getElementById("contenedor")
-
-// Creamos 2 nodos de ejemplo y los llenamos de texto con .innerText
-
-let nuevoSubtitulo = document.createElement("h4")
-nuevoSubtitulo.innerText = "Clase 8!!!"
-
-let textoRandom = document.createElement("p")
-textoRandom.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, veniam laudantium accusantium esse asperiores atque modi ducimus. Impedit alias consectetur aspernatur tempore ad vitae, voluptas nemo nulla fuga ex optio!"
-
-// Chequeamos si están conectados (False)
-console.log(nuevoSubtitulo.isConnected) 
-
-// trabajamos appendChild - UNIMOS a estos 2 elementos con un contenedor padre
-contenedor.appendChild(nuevoSubtitulo)
-contenedor.appendChild(textoRandom)
-
-console.log(nuevoSubtitulo.isConnected) // che, este nodo está conectado al dom? si o no
-
-
-// .remove() borra del DOM el elemento que seleccionemos
-textoRandom.remove() 
-
-/* DOM - COPIA DINÁMICA DEL HTML QUE ES LA QUE SE RENDERIZA EN EL NAVEGADOR*/
-// console.log(document) - OBJETO DOCUMENT - TIENE TODO EL DOM (EL HTML)
+miPromesa
+.then((res)=>console.log("Exito:", res))
+.catch((err)=>console.log("error", err))

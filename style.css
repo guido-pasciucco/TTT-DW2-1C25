@@ -38,6 +38,12 @@ SELECTOR - puede ser
 }
 
 
+#caja{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+
 #displayProductos{
     display: flex;
     justify-content: space-evenly;

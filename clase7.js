@@ -21,15 +21,11 @@ CLASES - COMUNICACIÓN ENTRE HTML Y CSS
 const listaSuper = document.getElementsByClassName("listaSuper")
 const items = document.getElementsByTagName("li") */
 
-
 // PARTE 1 ------------
 
 const contenedor = document.getElementById("contenedor")
 const tituloSitio = document.createElement("h1") // creamos nodo h1
 tituloSitio.id = "titulo" // le ponemos id
-
-
-
 
 const anotacion = document.createElement("p") // creamos nodo p
 anotacion.innerText = "Ya borré los comentarios desde Javascript" // le agregamos texto
@@ -38,7 +34,6 @@ anotacion.innerText = "Ya borré los comentarios desde Javascript" // le agregam
 contenedor.appendChild(tituloSitio) 
 contenedor.appendChild(anotacion)
 console.log(document.body)
-
 
 // PARTE 2 -------
 
@@ -51,7 +46,6 @@ const titulo = document.querySelector("#titulo")
 tituloSitio.innerHTML =  `Hola <i>mundo</i> desde Javascript` // le agregamos HTML interno
 titulo.style.fontFamily = "Arial, Helvetica, sans-serif"
 titulo.style.backgroundColor = "yellow"
-
 
 let isMayorDeEdad = true
 
@@ -73,34 +67,108 @@ let arraySuper = [
     {titulo: "Leche",      marca: "Tregar",        precio: "1600", stock: 21, img: "https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3261968_f.jpg"},
 ]
 
-
-
 const renderListaSuper =  ()  =>{
-    
     const subtitulo = document.createElement("h2")
     subtitulo.innerText = "Lista del super desde Javascript!!!"
     listaSuper.appendChild(subtitulo)
-
     const displayProductos = document.createElement("div")
     displayProductos.id = "displayProductos"
     listaSuper.appendChild(displayProductos)
-
     for(producto in arraySuper){
-        let thisProd = arraySuper[producto] // opcional - abreviamos con una variable
-        let card = document.createElement("div") // por cada prod creamos un div llamado card
-        card.className = "estiloCard" // a ese div le ponemos la clase estiloCard, para poder 
-        // darle estilo desde CSS
-        // llenamos de contenido cada card
+        let thisProd = arraySuper[producto] 
+        let card = document.createElement("div") 
+        card.clasidsName = "estiloCard" 
         card.innerHTML += ` 
             <h3>${thisProd.titulo}</h3>
             <p>${thisProd.marca}</p>
             <img src="${thisProd.img}" alt="${thisProd.titulo}" height="100px", width="auto"> 
             <p>$${thisProd.precio}</p>
             <p>Quedan ${thisProd.stock} unidades</p>
-            <button>Agregar al carrito</button>
+            <button onclick="console.log('${thisProd.titulo} agregado al carrito!')" >Agregar al carrito</button>
         `
-        displayProductos.appendChild(card) // agregamos esta card al display de productos
+        displayProductos.appendChild(card)
     }
 }
 
-renderListaSuper()
+
+
+
+const btnPrueba = document.getElementById("btnPrueba")
+
+
+/* LOS EVENTOS NECESITAN SER "ESCUCHADOS" ANTES DE PODERLES ASIGNAR UNA FUNCIÓN
+
+3 métodos para trabajar funciones asociadas a eventos.
+    - addEventListener("evento", función) la funcion puede ser un llamado externo o una callback
+    - prefijo on*evento* - la funcion puede ser un llamado externo o una callback
+    - eventos inline desde HTML *onEvento* - solo se los recomiendo en HTML generado desde JS!!!
+Variedad grande de eventos que es posible escuchar.
+    - click
+
+"cuando hagan click en el btnPrueba, se lanza un console log que dice hola mundo."
+*/
+
+// opcion 1 - .addEventListener("evento", funcion)
+// elemento.addEventListener("evento", funcion)
+btnPrueba.addEventListener("click", renderListaSuper)
+
+// opcion 2 - prefijo on
+// elemento.onevento = () => funcion
+// btnPrueba.onclick = () => console.log("HOLAAAA")
+
+// opcion 3 - inline desde HTML (solo con DOM)
+
+
+
+/* EVENTOS MÁS FRECUENTES
+EJEMPLO BOTÓN
+- ✅ CLICK - ocurre cuando hacemos click en un elemento
+EJEMPLO CAJA
+- ✅ MOUSEOVER - ocurre cuando nos paramos con el mouse encima de un elemento.
+- ✅ MOUSEOUT - ocurre cuando ME VOY con el mouse del elemento 
+- ✅ MOUSEMOVE - ocurre cuando muevo el mouse.
+EJEMPLO INPUT
+- ✅ KEYDOWN - cuando apreto 1 tecla
+- ✅ KEYUP - cuando suelto 1 tecla
+- ✅ CHANGE
+- ✅ INPUT
+- ✅ SUBMIT - actualización de una funcion muy vieja de html
+
+Break 10'
+
+promesas
+desafío 9 - opcional
+fin
+*/
+
+const caja = document.getElementById("caja")
+
+// mouseOver
+caja.addEventListener("mouseover", () => console.log("Entraste en la caja"))
+// mouseOut
+caja.addEventListener("mouseout", () => console.log("Saliste de la caja"))
+// mouseMove
+caja.addEventListener("mousemove", () => console.log(`Moviste el mouse ${contador+1} veces`))
+
+const inputPrueba = document.getElementById("inputPrueba")
+
+// keyDown
+/* inputPrueba.onkeydown = () => console.log("Apretaste una tecla") */
+// keyUp
+/* inputPrueba.onkeyup = () => console.log("Soltaste una tecla") */
+
+// input - se activa cuando ocurre un cambio , por más mínimo que sea, en el input.
+inputPrueba.addEventListener("input", () => console.log("Se ejecutó ONINPUT"))
+
+// change - se activa cuando "me voy" del input (es decir, que terminé de escribir)
+inputPrueba.addEventListener("change", () => console.log("Se ejecutó ONCHANGE"))
+
+
+// submit - permite enviar un form de html por js
+const btnSubmit = document.getElementById("btnSubmit")
+
+btnSubmit.onsubmit = (e) => {
+    e.preventDefault() // anula la funcionalidad original de submit (la de HTML)
+    // acá nosotros hacemos la funcionalidad que queramos.
+    console.log("ONSUBMIT!!!!!!!")
+}
