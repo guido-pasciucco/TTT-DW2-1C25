@@ -67,6 +67,9 @@ let arraySuper = [
     {titulo: "Leche",      marca: "Tregar",        precio: "1600", stock: 21, img: "https://statics.dinoonline.com.ar/imagenes/full_600x600_ma/3261968_f.jpg"},
 ]
 
+let carrito = []
+
+
 const renderListaSuper =  ()  =>{
     const subtitulo = document.createElement("h2")
     subtitulo.innerText = "Lista del super desde Javascript!!!"
@@ -75,18 +78,19 @@ const renderListaSuper =  ()  =>{
     displayProductos.id = "displayProductos"
     listaSuper.appendChild(displayProductos)
     for(producto in arraySuper){
-        let thisProd = arraySuper[producto] 
+        let thisProd = arraySuper[producto]
         let card = document.createElement("div") 
-        card.clasidsName = "estiloCard" 
+        card.className = "estiloCard" 
         card.innerHTML += ` 
             <h3>${thisProd.titulo}</h3>
             <p>${thisProd.marca}</p>
             <img src="${thisProd.img}" alt="${thisProd.titulo}" height="100px", width="auto"> 
             <p>$${thisProd.precio}</p>
             <p>Quedan ${thisProd.stock} unidades</p>
-            <button onclick="console.log('${thisProd.titulo} agregado al carrito!')" >Agregar al carrito</button>
+            <button onclick="${() => carrito.push(arraySuper[producto])}">Agregar al carrito</button>
         `
         displayProductos.appendChild(card)
+        console.log(carrito)
     }
 }
 

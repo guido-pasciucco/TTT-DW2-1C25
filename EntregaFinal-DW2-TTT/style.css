@@ -1,0 +1,44 @@
+h1{
+    color: red;
+}
+
+/* 
+
+SELECTOR {
+    propiedad a modificar : valor;
+    propiedad a modificar : valor;
+    propiedad a modificar : valor;
+    propiedad a modificar : valor;
+    propiedad a modificar : valor;        
+}
+
+CSS CHEATSHEET - "machete" de CSS
+
+
+SELECTOR - puede ser
+    - clase .miClase
+    - id #miId
+    - etiqueta. h1
+
+    los selectores se pueden anidar
+        li p - todas las etiquetas p dentro de etiquetas li
+        .miClase img
+
+    se puede llamar a más de un selector en una sola regla
+        .miClase, p, #miId, h3 - a cada uno de estos, aplicale la misma regla.
+
+*/
+
+
+.estiloCard{
+    background-color: bisque;
+    margin: 10px;
+    padding: 30px;
+    text-align: center;
+}
+
+#displayProductos{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
